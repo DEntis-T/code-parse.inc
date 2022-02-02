@@ -169,6 +169,9 @@
 #define operatore@[%5] %5_state()
 #define nativee@[%5]   %5_native()
 
+// Parser keywords:
+#define parsee@[%5]	%5_parse()
+
 // YSI keywords.
 #define globale@[%5]       %5_global()
 #define foreigne@[%5]      %5_foreign()
