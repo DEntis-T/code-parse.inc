@@ -688,3 +688,21 @@
 #define PARSE@ARRAY_MULTI_TAGGROUP_CONST PARSE@ARR_CST_GRP_MUL
 #define PARSE@MULTI_ARRAY_TAGGROUP_CONST PARSE@ARR_CST_GRP_MUL
 #define PARSE@MULTI_TAGGROUP_ARRAY_CONST PARSE@ARR_CST_GRP_MUL
+
+#if !defined PARSER@NO_DEFAULT_PARSERS
+
+#define @PARSER_%0\32; @PARSER_
+
+#define parse @PARSER_
+
+#define arrcount:%1(%2) FUNC_PARSER(ARRAY_COUNT,ARR:NUM:)(%1(%2)) stock const ARRCOUNT_OF_%1 = 0; %1(%2)
+// Default.  Called for parameters that didn't match any other type.
+#define ARRAY_COUNT_NUM(%9)%8$ %8$
+// Arrays.  Called when an array is matched.
+#define ARRAY_COUNT_ARR(%9)%8$%0=%1; %8$%0=%1 + 1;
+// Ending.  Called when the parsing is complete.
+#define ARRAY_COUNT_END(%9)%8$ %8$
+// Ending.  Called when there are no function parameters.
+#define ARRAY_COUNT_NUL(%9)%8$ %8$
+
+#define @PARSER_arrcount // Unfinished
